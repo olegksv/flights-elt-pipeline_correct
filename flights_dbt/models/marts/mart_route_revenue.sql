@@ -12,7 +12,7 @@ SELECT
     tf.fare_conditions,
     COUNT(tf.ticket_no) AS total_tickets,
     SUM(tf.amount_rub) AS total_revenue_rub,
-    ROUND(SUM(tf.amount_rub) / COALESCE(c.usd_rate, 60.0), 2) AS total_revenue_usd
+    ROUND((SUM(tf.amount_rub) / COALESCE(c.usd_rate, 60.0))::numeric, 2) AS total_revenue_usd
 FROM {{ ref('stg_flights') }} f
 JOIN {{ ref('stg_ticket_flights') }} tf
     ON f.flight_id = tf.flight_id

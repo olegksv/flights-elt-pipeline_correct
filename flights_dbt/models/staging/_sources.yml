@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: bookings_raw
+    description: "Сырые таблицы из транзакционной БД авиаперевозок"
+    schema: bookings
+    tables:
+      - name: flights
+      - name: ticket_flights
+
+  - name: external_api
+    description: "Данные, загружаемые Python-пайплайном из внешнего API"
+    schema: public
+    tables:
+      - name: raw_currency_rates

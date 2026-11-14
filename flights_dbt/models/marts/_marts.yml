@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: mart_route_revenue
+    description: "Инкрементальная витрина выручки по маршрутам в рублях и долларах"
+    columns:
+      - name: flight_date
+        tests:
+          - not_null
+      - name: total_tickets
+        tests:
+          - not_null
+      - name: total_revenue_rub
+        tests:
+          - not_null
+      - name: total_revenue_usd
+        tests:
+          - not_null
